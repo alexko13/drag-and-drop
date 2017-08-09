@@ -5,20 +5,20 @@ class Drag extends Component {
     super(props)
 
     this.handleDragStart = this.handleDragStart.bind(this)
-    this.handleDrag = this.handleDrag.bind(this)
     this.handleDragEnd = this.handleDragEnd.bind(this)
+    this.handleDrag = this.handleDrag.bind(this)
   }
 
   handleDragStart (e) {
-    console.log('Drag.handleDragStart', e)
-  }
-
-  handleDrag (e) {
-    console.log('Drag.handleDrag', e)
+    // console.log('Drag.handleDragStart', e)
   }
 
   handleDragEnd (e) {
-    console.log('Drag.handleDragEnd', e)
+    // console.log('Drag.handleDragEnd', e)
+  }
+
+  handleDrag (e) {
+    // console.log('Drag.handleDrag', e)
   }
 
   render () {
@@ -29,8 +29,8 @@ class Drag extends Component {
         style={ style }
         className={ className }
         onDragStart={ this.handleDragStart}
-        onDrag={ this.handleDrag }
-        onDragEnd={ this.handleDragEnd }>
+        onDragEnd={ this.handleDragEnd }
+        onDrag={ this.handleDrag }>
         { children }
       </div>
     )

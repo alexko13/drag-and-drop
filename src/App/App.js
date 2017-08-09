@@ -11,7 +11,9 @@ class App extends Component {
           <h2>I am Draggable!</h2>
           <span>(this too!)</span>
         </Drag>
-        <Drop />
+        <Drop>
+          I am a Drop Target
+        </Drop>
       </div>
     )
   }
