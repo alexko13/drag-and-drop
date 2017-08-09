@@ -1,6 +1,21 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Drag extends Component {
+  static __noop = () => {}
+
+  static propTypes = {
+    onStart: PropTypes.func,
+    onEnd: PropTypes.func,
+    onDrag: PropTypes.func
+  }
+
+  static defaultProps = {
+    onStart: Drag.__noop,
+    onEnd: Drag.__noop,
+    onDrag: Drag.__noop
+  }
+
   constructor (props) {
     super(props)
 
@@ -10,19 +25,20 @@ class Drag extends Component {
   }
 
   handleDragStart (e) {
-    // console.log('Drag.handleDragStart', e)
+    this.props.onStart(e)
   }
 
   handleDragEnd (e) {
-    // console.log('Drag.handleDragEnd', e)
+    this.props.onEnd(e)
   }
 
   handleDrag (e) {
-    // console.log('Drag.handleDrag', e)
+    this.props.onDrag(e)
   }
 
   render () {
     const { children, style, className } = this.props
+
     return (
       <div
         draggable

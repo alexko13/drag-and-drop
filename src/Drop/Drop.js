@@ -1,6 +1,23 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Drop extends Component {
+  static __noop = () => {}
+
+  static propTypes = {
+    onEnter: PropTypes.func,
+    onLeave: PropTypes.func,
+    onHover: PropTypes.func,
+    onDrop: PropTypes.func
+  }
+
+  static defaultProps = {
+    onEnter: Drop.__noop,
+    onLeave: Drop.__noop,
+    onHover: Drop.__noop,
+    onDrop: Drop.__noop,
+  }
+
   constructor (props) {
     super(props)
 
@@ -11,24 +28,26 @@ class Drop extends Component {
   }
 
   handleDragEnter (e) {
-    // console.log('Drop.handleDragEnter', e)
+    this.props.onEnter(e)
   }
 
   handleDragLeave (e) {
-    // console.log('Drop.handleDragLeave', e)
+    this.props.onLeave(e)
   }
 
   handleDragOver (e) {
     if (e.preventDefault) e.preventDefault() // needed to allow drop
-    // console.log('Drop.handleDragOver', e)
+
+    this.props.onHover(e)
   }
 
   handleDrop (e) {
-    // console.log('Drop.handleDrop', e)
+    this.props.onDrop(e)
   }
 
   render () {
     const { children, style, className } = this.props
+
     return (
       <div
         style={ style }
