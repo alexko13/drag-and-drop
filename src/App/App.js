@@ -1,14 +1,17 @@
 import React, { Component } from 'react'
-import Draggable from '../Draggable/Draggable'
-import DropZone from '../DropZone/DropZone'
+import Drag from '../Drag/Drag'
+import Drop from '../Drop/Drop'
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <div>
-        Hello World!
-        <Draggable />
-        <DropZone />
+        <h1>Hello World!</h1>
+        <Drag>
+          <h2>I am Draggable!</h2>
+          <span>(this too!)</span>
+        </Drag>
+        <Drop />
       </div>
     )
   }
